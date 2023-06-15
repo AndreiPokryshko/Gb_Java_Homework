@@ -9,9 +9,10 @@ public class HW2_Task5 {
     public static void main(String[] args) {
 //select * from students where name=Ivanov, country=Russia, city=Moscow, age=null
         Scanner scanner_in = new Scanner(System.in);
-        String str=scanner_in.nextLine(); //Считывание с файла в IIdea Строка: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
-        str=str.replace("{", "");
-        str= str.replaceAll("}","").replaceAll("\"" ,"").replaceAll(":" ,"=");
-        System.out.print("select * from students where "+str);
+        String str = scanner_in.nextLine(); //Считывание с файла в IIdea Строка: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
+//        str=str.replace("{", "");
+        // str= str.replaceAll("}","").replaceAll("\"" ,"").replaceAll(":" ,"=");
+        String[] str1 = str.replaceAll("\\p{P}", "").replaceAll("\\s", " ").split(" ");
+        System.out.print("select * from students where " + str);
     }
 }
